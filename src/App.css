@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins-Regular.ttf') format('truetype');
+  /* Add more font file formats and sources if necessary */
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('./fonts/Poppins-Bold.ttf') format('truetype');
+  /* Add more font file formats and sources if necessary */
+}
+
+@font-face {
+  font-family: 'Poppins-Black';
+  src: url('./fonts/Poppins-Black.ttf') format('truetype');
+  /* Add more font file formats and sources if necessary */
+}
