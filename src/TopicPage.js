@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useRef, useContext } from 'react';
 import { Box, TextField } from '@mui/material';
 import { TopicContext } from './TopicContext';
 import TopicButton from './TopicButton';
@@ -25,16 +25,11 @@ const TopicPage = () => {
     }
   };
 
+  // Reverse the order of fields array
+  const reversedFields = [...fields].reverse();
+
   return (
     <Box sx={{ maxWidth: '600px', mx: 'auto', p: '16px' }}>
-      {fields.map((field) => (
-        <TopicButton
-          key={field.id}
-          id={field.id}
-          value={field.value}
-          onDelete={() => deleteField(field.id)}
-        />
-      ))}
       <TextField
         variant="standard"
         fullWidth
@@ -54,6 +49,14 @@ const TopicPage = () => {
         }}
         inputRef={(ref) => fieldRefs.current.push(ref)}
       />
+      {reversedFields.map((field) => (
+        <TopicButton
+          key={field.id}
+          id={field.id}
+          value={field.value}
+          onDelete={() => deleteField(field.id)}
+        />
+      ))}
     </Box>
   );
 };
