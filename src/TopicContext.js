@@ -53,7 +53,7 @@ const TopicProvider = ({ children }) => {
     };
 
     return (
-        <TopicContext.Provider value={{ fields, addField, deleteField, updateField, addSubField }}>
+        <TopicContext.Provider value={{ fields, setFields, addField, deleteField, updateField, addSubField }}>
             {children}
         </TopicContext.Provider>
     );

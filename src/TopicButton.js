@@ -13,7 +13,7 @@ const TopicButton = ({ id, value, onDelete, width = '100%' }) => {
     const [editedLabel, setEditedLabel] = useState(value);
     const [currentLabel, setCurrentLabel] = useState(value);
 
-    const { updateField, addSubField } = useContext(TopicContext);
+    const { fields, setFields, updateField, addSubField } = useContext(TopicContext);
     const inputRef = useRef(null);
     const navigate = useNavigate(); // Hook for navigation
 
@@ -83,13 +83,30 @@ const TopicButton = ({ id, value, onDelete, width = '100%' }) => {
         }
     };
 
+
     const handleSubtaskClick = (event) => {
         event.stopPropagation();
         const newField = {
-            id: Date.now(),
-            value: 'New Subtopic',
+          id: Date.now(),
+          value: 'New Subtopic',
         };
-        addSubField(id, newField);
+        if (Array.isArray(fields)) {
+          const fieldIndex = fields.findIndex((field) => field.id === id);
+          if (fieldIndex !== -1) {
+            const currentField = fields[fieldIndex];
+            if (Array.isArray(currentField.subfields)) {
+              addSubField(id, newField);
+            } else {
+              const updatedField = {
+                ...currentField,
+                subfields: [newField],
+              };
+              const updatedFields = [...fields];
+              updatedFields[fieldIndex] = updatedField;
+              setFields(updatedFields);
+            }
+          }
+        }
       };
 
     return (
