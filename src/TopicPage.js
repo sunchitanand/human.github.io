@@ -50,12 +50,23 @@ const TopicPage = () => {
         inputRef={(ref) => fieldRefs.current.push(ref)}
       />
       {reversedFields.map((field) => (
-        <TopicButton
-          key={field.id}
-          id={field.id}
-          value={field.value}
-          onDelete={() => deleteField(field.id)}
-        />
+        <>
+          <TopicButton
+            key={field.id}
+            id={field.id}
+            value={field.value}
+            onDelete={() => deleteField(field.id)}
+          />
+          {field.subfields && field.subfields.map((subfield) => (
+            <TopicButton
+              key={subfield.id}
+              id={subfield.id}
+              value={subfield.value}
+              onDelete={() => deleteField(subfield.id)}
+              width='80%' // set width as 80% for subtasks
+            />
+          ))}
+        </>
       ))}
     </Box>
   );
