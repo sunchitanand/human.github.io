@@ -123,7 +123,7 @@ const TopicButton = ({ id, value, onDelete, width = '100%' }) => {
                 mb: '16px',
                 justifyContent: 'space-between',
                 textTransform: 'none',
-                width: '100%',
+                width: width,
                 backgroundColor: isHovered ? 'black' : isEditing ? '#f2f2f2' : 'white',
                 color: isHovered ? 'white' : 'black',
                 boxShadow: 'none',
@@ -186,7 +186,7 @@ const TopicButton = ({ id, value, onDelete, width = '100%' }) => {
                 )}
             </Box>
 
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
                 {isHovered && !isEditing && (
                     <>
                         <IconButton
