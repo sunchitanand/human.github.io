@@ -23,7 +23,7 @@ const AboutPage = ({ editMessage }) => {
               fontWeight: 'regular',
               width: '50%', 
               margin: '0 auto',
-              fontSize: '22px'
+              fontSize: '18px'
             }}
             paragraph
           >

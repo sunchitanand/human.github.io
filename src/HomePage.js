@@ -40,7 +40,8 @@ const HomePage = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Enable this line to add scroll blur effect
+    // window.addEventListener('scroll', handleScroll); 
 
     return () => {
       anim.destroy();
@@ -68,7 +69,7 @@ const HomePage = () => {
             BUILDING THE NEXT GENERATION OF AI INTERFACES
         </Typography>
       </div>
-      <div ref={animationContainerRef} style={{ width: '900px', height: '900px', margin: 'auto', marginTop: '-1%', zIndex: 0, filter: 'blur(0px)', transition: 'filter 0.5s' }}></div>
+      <div ref={animationContainerRef} style={{ width: '800px', height: '800px', margin: 'auto', justifyContent: 'center', alignItems: 'center', zIndex: 0, filter: 'blur(0px)', transition: 'filter 0.5s' }}></div>
       {/* Add other content or components for your homepage */}
     </div>
   );

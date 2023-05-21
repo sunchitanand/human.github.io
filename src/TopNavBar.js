@@ -14,6 +14,7 @@ const TopNavBar = () => {
         <div>
           <Button color="inherit" href="/" sx={{ color: 'black' }}>Home</Button>
           <Button color="inherit" href="/about" sx={{ color: 'black' }}>Philosophy</Button>
+          <Button color="inherit" href="/topics" sx={{ color: 'white', backgroundColor: 'black', marginLeft:'10px' }}>Try Burrow</Button>
         </div>
       </Toolbar>
     </AppBar>
