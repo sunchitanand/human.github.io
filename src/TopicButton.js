@@ -28,7 +28,7 @@ const TopicButton = ({ id, value, onDelete }) => {
     event.preventDefault();
     event.stopPropagation();
     setIsDeleting(true);
-    onDelete(id);
+    onDelete(id); // Pass the id of the button being deleted
   };
 
   const handleButtonClick = () => {

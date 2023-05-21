@@ -1,24 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import { Box, TextField } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { TopicContext } from './TopicContext';
 import TopicButton from './TopicButton';
 
 const TopicPage = () => {
-  const [fields, setFields] = useState([]);
   const fieldRefs = useRef([]);
-
-  useEffect(() => {
-    // Retrieve stored fields from localStorage on component mount
-    const storedFields = localStorage.getItem('topicPageFields');
-    if (storedFields) {
-      setFields(JSON.parse(storedFields));
-    }
-  }, []);
-
-  useEffect(() => {
-    // Save fields to localStorage whenever it changes
-    localStorage.setItem('topicPageFields', JSON.stringify(fields));
-  }, [fields]);
+  const { fields, addField, deleteField } = useContext(TopicContext);
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
@@ -31,31 +18,22 @@ const TopicPage = () => {
           id: Date.now(),
           value: fieldValue,
         };
-        setFields((prevFields) => [...prevFields, newField]);
+        addField(newField);
         currentField.value = '';
         currentField.focus();
       }
     }
   };
 
-  const handleDeleteField = (fieldId) => {
-    setFields((prevFields) => prevFields.filter((field) => field.id !== fieldId));
-  };
-
-  const handleFieldBlur = (fieldId) => {
-    const currentFieldIndex = fieldRefs.current.findIndex((ref) => ref === document.activeElement);
-    if (currentFieldIndex === -1) {
-      setFields((prevFields) => prevFields.filter((field) => field.id !== fieldId));
-    }
-  };
-
   return (
     <Box sx={{ maxWidth: '600px', mx: 'auto', p: '16px' }}>
       {fields.map((field) => (
-        // <Link key={field.id} to={`/chat/${field.id}`}>
-        // </Link>
-        <TopicButton id={field.id} value={field.value} onDelete={() => handleDeleteField(field.id)} />
-
+        <TopicButton
+          key={field.id}
+          id={field.id}
+          value={field.value}
+          onDelete={() => deleteField(field.id)}
+        />
       ))}
       <TextField
         variant="standard"
@@ -75,7 +53,6 @@ const TopicPage = () => {
           },
         }}
         inputRef={(ref) => fieldRefs.current.push(ref)}
-        onBlur={() => handleFieldBlur(fieldRefs.current.length - 1)}
       />
     </Box>
   );
