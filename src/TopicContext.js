@@ -23,20 +23,50 @@ const TopicProvider = ({ children }) => {
         setFields((prevFields) => [...prevFields, newField]);
     };
 
-    const deleteField = (fieldId) => {
-        setFields((prevFields) => prevFields.filter((field) => field.id !== fieldId));
+    const deleteField = (parentId, fieldId) => {
+        if(parentId !== undefined){
+            setFields(prevFields =>
+                prevFields.map(field => {
+                    if(field.id === parentId) {
+                        return {
+                            ...field,
+                            subfields: field.subfields.filter(subfield => subfield.id !== fieldId)
+                        }
+                    }
+                    return field;
+                })
+            )
+        }else{
+            setFields(prevFields => prevFields.filter(field => field.id !== fieldId));
+        }
     };
 
-    const updateField = (fieldId, newValue) => {
-        setFields((prevFields) =>
-            prevFields.map((field) => {
-                if (field.id === fieldId) {
-                    return { ...field, value: newValue };
-                }
-                return field;
-            })
-        );
-    };
+    const updateField = (parentId, fieldId, newValue) => {
+        if (parentId !== undefined) {
+            setFields((prevFields) =>
+                prevFields.map((field) => {
+                    if (field.id === parentId) {
+                        return {
+                            ...field,
+                            subfields: field.subfields.map(subfield => 
+                                subfield.id === fieldId ? { ...subfield, value: newValue } : subfield
+                            ),
+                        };
+                    }
+                    return field;
+                })
+            );
+        } else {
+            setFields((prevFields) =>
+                prevFields.map((field) => {
+                    if (field.id === fieldId) {
+                        return { ...field, value: newValue };
+                    }
+                    return field;
+                })
+            );
+        }
+    };    
 
     const addSubField = (fieldId, newSubfield) => {
         setFields((prevFields) =>

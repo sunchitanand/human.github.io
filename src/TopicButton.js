@@ -6,7 +6,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { TopicContext } from './TopicContext';
 import LArrowIcon from './icons';
 
-const TopicButton = ({ id, value, onDelete, width = '100%' }) => {
+const TopicButton = ({ id, parentId, value, onDelete, width = '100%' }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
@@ -29,7 +29,7 @@ const TopicButton = ({ id, value, onDelete, width = '100%' }) => {
         event.preventDefault();
         event.stopPropagation();
         setIsDeleting(true);
-        onDelete(id); // Pass the id of the button being deleted
+        onDelete(parentId, id); // Pass the id of the button being deleted
     };
 
     const handleButtonClick = () => {
@@ -51,7 +51,7 @@ const TopicButton = ({ id, value, onDelete, width = '100%' }) => {
     const handleBlur = () => {
         setIsEditing(false);
         // Save the updated label to local storage
-        updateField(id, editedLabel);
+        updateField(parentId, id, editedLabel);
         setCurrentLabel(editedLabel); // Update the current label state
     };
 
@@ -90,6 +90,10 @@ const TopicButton = ({ id, value, onDelete, width = '100%' }) => {
           id: Date.now(),
           value: 'New Subtopic',
         };
+        if(parentId) {
+            // In this case, the button itself is a subtask, so we can't add more nested tasks
+            return
+        }
         if (Array.isArray(fields)) {
           const fieldIndex = fields.findIndex((field) => field.id === id);
           if (fieldIndex !== -1) {
@@ -124,6 +128,8 @@ const TopicButton = ({ id, value, onDelete, width = '100%' }) => {
                 justifyContent: 'space-between',
                 textTransform: 'none',
                 width: width,
+                height: '35px',
+                marginTop: '-10px',
                 backgroundColor: isHovered ? 'black' : isEditing ? '#f2f2f2' : 'white',
                 color: isHovered ? 'white' : 'black',
                 boxShadow: 'none',
@@ -147,7 +153,8 @@ const TopicButton = ({ id, value, onDelete, width = '100%' }) => {
                             color: 'white',
                             marginRight: '10px',
                             marginLeft: '-10px',
-                            scale: 0.8,
+                            // reduce size by 20%
+                            transform: 'scale(0.8)',
                         }}
                     >
                         <EditIcon />

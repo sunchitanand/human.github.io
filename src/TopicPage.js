@@ -51,20 +51,23 @@ const TopicPage = () => {
             />
             {reversedFields.map((field) => (
                 <React.Fragment key={field.id}>
+                    {/* // Main Topic Button */}
                     <TopicButton
                         id={field.id}
                         value={field.value}
-                        onDelete={() => deleteField(field.id)}
-                    />
+                        onDelete={deleteField}
+                        />
                     <div style={{ width: '95%', marginLeft: 'auto' }}>
                         {field.subfields &&
                             field.subfields.map((subfield) => (
+                                // SubTopic Button
                                 <TopicButton
                                     key={subfield.id}
                                     id={subfield.id}
+                                    parentId={field.id}
                                     value={subfield.value}
-                                    onDelete={() => deleteField(subfield.id)}
-                                />
+                                    onDelete={deleteField}
+                                    />
                             ))}
                     </div>
                 </React.Fragment>
