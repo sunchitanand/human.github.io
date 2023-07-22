@@ -4,7 +4,7 @@ import { Button, IconButton, Box } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import { TopicContext } from './TopicContext';
-import LArrowIcon from './icons';
+import LArrowIcon from '../../icons';
 
 const TopicButton = ({ id, parentId, value, onDelete, width = '100%' }) => {
     const [isHovered, setIsHovered] = useState(false);

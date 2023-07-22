@@ -2,6 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Box, Grid } from '@mui/material';
 import ChatTextField from './ChatTextField';
 import ChatHistoryStack from './ChatHistoryStack';
+// import { OpenAI } from "langchain/llms/openai";
+import { ChatOpenAI } from "langchain/chat_models/openai";
+import { HumanMessage, SystemMessage } from "langchain/schema";
 
 const ChatPage = () => {
   useEffect(() => {
@@ -14,9 +17,36 @@ const ChatPage = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const b1Ref = useRef(null);
 
-  const handleSendMessage = (message) => {
+  const chat = new ChatOpenAI({ temperature: 0, openAIApiKey: "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"});
+
+  // const handleSendMessage = (message) => {
+  //   setChatHistory((prevChatHistory) => [...prevChatHistory, message]);
+  // };
+
+  const handleSendMessage = async (message) => {
     setChatHistory((prevChatHistory) => [...prevChatHistory, message]);
-  };
+  
+    try {
+      // const aiResponse = await model.call(
+      //   message
+      // );
+      // console.log(aiResponse);
+
+      const aiResponse = await chat.call([
+        new HumanMessage(message),
+      ]);      
+      console.log("Responded: $aiResponse")
+
+      // const aiResponse = response.data.aiResponse; // Adjust the response data structure as per your API response
+  
+      setChatHistory((prevChatHistory) => [
+        ...prevChatHistory,
+        { message: message, aiResponse: aiResponse }
+      ]);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };  
 
   useEffect(() => {
     const b1Element = b1Ref.current;

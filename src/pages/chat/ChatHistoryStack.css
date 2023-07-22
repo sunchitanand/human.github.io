@@ -1,0 +1,24 @@
+.chat-history-container {
+    height: 80%;
+    overflow-y: auto;
+  }
+  
+  .chat-history-paper {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    box-shadow: none;
+  }
+  
+  .chat-history-message {
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+  }
+  
+  .chat-history-response {
+    font-family: Poppins, sans-serif;
+    background-color: white;
+    margin-top: 5px;
+    padding: 10px;
+  }
+  

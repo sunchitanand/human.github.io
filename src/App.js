@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion';
 import TopNavBar from './TopNavBar';
 import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import ChatPage from './ChatPage';
-import TopicPage from './TopicPage';
-import { TopicProvider } from './TopicContext';
+import AboutPage from './pages/about/AboutPage';
+import ChatPage from './pages/chat/ChatPage';
+import TopicPage from './pages/topics/TopicPage';
+import { TopicProvider } from './pages/topics/TopicContext';
 import { PHILOSOPHY_TEXT } from './constants';
 
 const App = () => {

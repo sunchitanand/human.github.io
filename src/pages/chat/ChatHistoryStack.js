@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Paper, Typography } from '@mui/material';
 // eslint-disable-next-line
-import { TEXT_FIELD_BG } from './colors';
+import { TEXT_FIELD_BG } from '../../colors';
+
 
 const ChatHistoryStack = ({ chatHistory }) => {
   const containerRef = useRef(null);
@@ -15,24 +16,26 @@ const ChatHistoryStack = ({ chatHistory }) => {
 
   return (
     <div style={{ height: '80%', overflowY: 'auto' }} ref={containerRef}>
-      {chatHistory.map((message, index) => (
+      {chatHistory.map((chatItem, index) => (
         <React.Fragment key={index}>
           <Paper sx={{ padding: '10px', marginBottom: '10px', backgroundColor: 'white', boxShadow: 'none' }}>
             <Typography variant="body1" fontFamily="Poppins, sans-serif" fontWeight="bold">
-              {message}
+              {chatItem.message}
             </Typography>
           </Paper>
-          <Typography
-            variant="body2"
-            fontFamily="Poppins, sans-serif"
-            sx={{
-              backgroundColor: 'white',
-              marginTop: '5px',
-              padding: '10px',
-            }}
-          >
-            AI just responded
-          </Typography>
+            {chatItem.aiResponse && (
+            <Typography
+              variant="body2"
+              fontFamily="Poppins, sans-serif"
+              sx={{
+                backgroundColor: 'white',
+                marginTop: '5px',
+                padding: '10px',
+              }}
+            >
+              {chatItem.aiResponse}
+            </Typography>
+          )}
         </React.Fragment>
       ))}
     </div>

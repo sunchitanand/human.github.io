@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import BottomBar from './BottomBar';
+import BottomBar from '../../BottomBar';
 
 const AboutPage = ({ editMessage }) => {
   const paragraphs = editMessage.split('\n\n'); // Split the text into paragraphs using double line breaks

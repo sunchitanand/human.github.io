@@ -7,6 +7,8 @@ const TopicPage = () => {
     const fieldRefs = useRef([]);
     const { fields, addField, deleteField } = useContext(TopicContext);
 
+    console.log('OpenAI API key:', process.env.OPENAI_API_KEY);
+
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
