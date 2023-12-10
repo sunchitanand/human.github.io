@@ -39,7 +39,11 @@ const HomePage = () => {
                 textTransform: 'capitalize',
                 filter: 'blur(0px)',
                 transition: 'filter 0.5s',
-                fontSize: '8vw',
+                fontSize: {
+                    xs: '8vw',
+                    sm: '8vw',
+                    md: '8vw',
+                },
                 position: 'absolute',
                 top: '15%',  // Adjust this value to position the Typography higher than the center
                 left: '50%',
