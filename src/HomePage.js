@@ -17,45 +17,21 @@ const HomePage = () => {
       autoplay: true,
     });
 
-    const handleScroll = () => {
-      const animationOffset = window.innerHeight * 0.3;
-      const animationTriggerPoint = animationContainerRef.current.offsetTop - animationOffset;
-
-      if (window.pageYOffset > animationTriggerPoint) {
-        anim.play();
-        animationContainerRef.current.style.filter = 'blur(0)';
-        textRef.current.style.filter = 'blur(0)';
-      } else {
-        anim.pause();
-        animationContainerRef.current.style.filter = 'blur(10px)';
-        textRef.current.style.filter = 'blur(10px)';
-      }
-
-      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollEndThreshold = 10; // Adjust this value as needed
-
-      if (scrollPosition < scrollEndThreshold) {
-        animationContainerRef.current.style.filter = 'blur(10px)';
-        textRef.current.style.filter = 'blur(10px)';
-      }
-    };
-
-    // Enable this line to add scroll blur effect
-    // window.addEventListener('scroll', handleScroll); 
+    document.body.style.overflow = 'hidden'; // Disable scrolling on the body element
 
     return () => {
       anim.destroy();
-      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = 'auto'; // Enable scrolling on unmount
     };
   }, []);
 
   return (
-    <div style={{ position: 'relative', minHeight: '100%', paddingTop: '60px' }}>
-      <div style={{ position: 'absolute', top: '15%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, width: '90%' }}>
+    <div style={{ position: 'relative', minHeight: '100vh', width: '100vw' }}>
+      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 2, width: '200%' }}>
         <Typography
             ref={textRef}
             variant="h1"
-            align="right"
+            align="center"
             sx={{
                 fontFamily: 'Poppins, sans-serif',
                 color: 'black',
@@ -63,14 +39,20 @@ const HomePage = () => {
                 textTransform: 'capitalize',
                 filter: 'blur(0px)',
                 transition: 'filter 0.5s',
-                fontSize: '80px'
+                fontSize: '8vw',
+                position: 'absolute',
+                top: '15%',  // Adjust this value to position the Typography higher than the center
+                left: '50%',
+                transform: 'translate(-50%, -80%)',
+                whiteSpace: 'normal', // Allow text to wrap
+                paddingLeft: '2%', // Add padding to the left
+                paddingRight: '2%', // Add padding to the right
             }}
         >
-            BUILDING THE NEXT GENERATION OF AI INTERFACES
+            UPDATE THE WAY YOU CONSUME BOOKS
         </Typography>
       </div>
-      <div ref={animationContainerRef} style={{ width: '800px', height: '800px', margin: 'auto', justifyContent: 'center', alignItems: 'center', zIndex: 0, filter: 'blur(0px)', transition: 'filter 0.5s' }}></div>
-      {/* Add other content or components for your homepage */}
+      <div ref={animationContainerRef} style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '200vw', height: '200vh', zIndex: 1, filter: 'blur(0px)', transition: 'filter 0.5s', opacity: 0.2}}></div>      {/* Add other content or components for your homepage */}
     </div>
   );
 };

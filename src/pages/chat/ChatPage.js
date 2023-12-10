@@ -17,7 +17,7 @@ const ChatPage = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const b1Ref = useRef(null);
 
-  const chat = new ChatOpenAI({ temperature: 0, openAIApiKey: "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"});
+  const chat = new ChatOpenAI({ temperature: 0});
 
   // const handleSendMessage = (message) => {
   //   setChatHistory((prevChatHistory) => [...prevChatHistory, message]);
