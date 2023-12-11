@@ -14,7 +14,7 @@ const TopNavBar = () => {
         <div>
           {/* <Button color="inherit" href="/" sx={{ color: 'black',  zIndex: 2}}>Home</Button> */}
           {/* <Button color="inherit" href="/about" sx={{ color: 'black',  zIndex: 2}}>Philosophy</Button> */}
-          <Button color="inherit" href="https://t.co/forU7QA9rV" target="_blank" sx={{ color: 'white', backgroundColor: 'black', marginLeft:'10px',  zIndex: 2, fontFamily: 'Avenir Next Bold, Poppins-Bold', fontWeight: 'bold', fontSize: '1.0em'}}>Join Waitlist</Button>        
+          <Button color="inherit" href="https://t.co/forU7QA9rV" target="_blank" sx={{ color: 'white', backgroundColor: 'black', marginLeft:'10px',  zIndex: 2, fontFamily: 'AvenirNext-Bold, Poppins-Bold', fontWeight: 'bold', fontSize: '1.0em'}}>Join Waitlist</Button>        
           </div>
       </Toolbar>
     </AppBar>
