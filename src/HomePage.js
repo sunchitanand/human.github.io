@@ -44,6 +44,11 @@ const HomePage = () => {
                     sm: '7vw',
                     md: '7vw',
                 },
+                lineHeight: {
+                  xs: '1.2', // Increase line spacing at xs breakpoint
+                  md: '1',
+                  sm: 1
+              },
                 position: 'absolute',
                 top: '15%',  // Adjust this value to position the Typography higher than the center
                 left: '50%',
