@@ -33,15 +33,15 @@ const HomePage = () => {
             variant="h1"
             align="center"
             sx={{
-                fontFamily: 'Poppins, sans-serif',
+                fontFamily: 'Avenir Next Bold, Poppins',
                 color: 'black',
                 fontWeight: 'bold',
                 textTransform: 'capitalize',
                 filter: 'blur(0px)',
                 transition: 'filter 0.5s',
                 fontSize: {
-                    xs: '8vw',
-                    sm: '8vw',
+                    xs: '7vw',
+                    sm: '7vw',
                     md: '7vw',
                 },
                 position: 'absolute',
