@@ -33,14 +33,14 @@ const HomePage = () => {
             variant="h1"
             align="center"
             sx={{
-                fontFamily: 'Avenir Next Bold, Poppins, AvenirNext-Bold',
+                fontFamily: 'Avenir Next Bold, Poppins-Bold, AvenirNext-Bold',
                 color: 'black',
                 fontWeight: 'bold',
                 textTransform: 'capitalize',
                 filter: 'blur(0px)',
                 transition: 'filter 0.5s',
                 fontSize: {
-                    xs: '14vw',
+                    xs: '12vw',
                     sm: '7vw',
                     md: '7vw',
                 },
@@ -56,7 +56,7 @@ const HomePage = () => {
             EXPERIENCE THE MAGIC OF BOOKS LIKE NEVER BEFORE
         </Typography>
       </div>
-      <div ref={animationContainerRef} style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '300vw', height: '300vh', zIndex: 1, filter: 'blur(0px)', transition: 'filter 0.5s', opacity: 0.2}}></div>      {/* Add other content or components for your homepage */}
+      <div ref={animationContainerRef} style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '350vw', height: '350vh', zIndex: 1, filter: 'blur(0px)', transition: 'filter 0.5s', opacity: 0.2}}></div>      {/* Add other content or components for your homepage */}
     </div>
   );
 };
