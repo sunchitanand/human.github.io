@@ -40,7 +40,7 @@ const HomePage = () => {
                 filter: 'blur(0px)',
                 transition: 'filter 0.5s',
                 fontSize: {
-                    xs: '7vw',
+                    xs: '14vw',
                     sm: '7vw',
                     md: '7vw',
                 },
