@@ -33,7 +33,7 @@ const HomePage = () => {
             variant="h1"
             align="center"
             sx={{
-                fontFamily: 'AvenirNext-Bold , Poppins',
+                fontFamily: 'Avenir Next Bold, Poppins, AvenirNext-Bold',
                 color: 'black',
                 fontWeight: 'bold',
                 textTransform: 'capitalize',
