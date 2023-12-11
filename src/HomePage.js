@@ -42,21 +42,21 @@ const HomePage = () => {
                 fontSize: {
                     xs: '8vw',
                     sm: '8vw',
-                    md: '8vw',
+                    md: '7vw',
                 },
                 position: 'absolute',
                 top: '15%',  // Adjust this value to position the Typography higher than the center
                 left: '50%',
                 transform: 'translate(-50%, -80%)',
                 whiteSpace: 'normal', // Allow text to wrap
-                paddingLeft: '2%', // Add padding to the left
-                paddingRight: '2%', // Add padding to the right
+                paddingLeft: '7%', // Add padding to the left
+                paddingRight: '7%', // Add padding to the right
             }}
         >
-            UPDATE THE WAY YOU CONSUME BOOKS
+            EXPERIENCE THE MAGIC OF BOOKS LIKE NEVER BEFORE
         </Typography>
       </div>
-      <div ref={animationContainerRef} style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '200vw', height: '200vh', zIndex: 1, filter: 'blur(0px)', transition: 'filter 0.5s', opacity: 0.2}}></div>      {/* Add other content or components for your homepage */}
+      <div ref={animationContainerRef} style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '300vw', height: '300vh', zIndex: 1, filter: 'blur(0px)', transition: 'filter 0.5s', opacity: 0.2}}></div>      {/* Add other content or components for your homepage */}
     </div>
   );
 };
