@@ -1,3 +1,13 @@
+### Add user to www-data group to build after deployment on the EC2 instance
+```
+sudo usermod -a -G www-data $USER
+sudo chown -R www-data:www-data /home/ubuntu/human.github.io/build
+sudo chmod -R 775 /home/ubuntu/human.github.io/build
+```
+
+
+------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
