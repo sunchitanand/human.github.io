@@ -87,7 +87,7 @@ const HomePage = () => {
               md: '1.5vw',
             },
             padding: {
-              xs: '1vw 4vw', // Increase padding for xs screens
+              xs: '2vw 4vw', // Increase padding for xs screens
               sm: '1vw 2vw',
               md: '1vw 2vw',
             },
